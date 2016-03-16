@@ -11,6 +11,13 @@ URL shortener package that gives a convenient Laravel Facade for [mremi/UrlShort
 
 WAAVI is a web development studio based in Madrid, Spain. You can learn more about us at [waavi.com](http://waavi.com)
 
+## Laravel compatibility
+
+ Laravel  | translation
+:---------|:----------
+ 5.1.x    | 1.0.x
+ 5.2.x    | 1.0.1 and higher
+
 ## Installation and Setup
 
 Require through composer
