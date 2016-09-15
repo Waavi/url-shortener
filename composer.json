@@ -1,6 +1,6 @@
 {
     "name": "waavi/url-shortener",
-    "description": "Google Recaptcha for Laravel 5",
+    "description": "Url Shortener for Laravel 5 with support for Google and Bitly drivers.",
     "keywords": [
         "waavi",
         "laravel",
