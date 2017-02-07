@@ -63,7 +63,7 @@ class UrlShortenerTest extends TestCase
 
         $factory->shouldReceive('make')->with('driverName')->andReturn($driver);
         $shortener->setDriver('driverName');
-        $driver->shouldReceive('expand')->with('http://google.com')->andThrow(new \Guzzle\Http\Exception\BadResponseException);
+        $driver->shouldReceive('expand')->with('http://google.com')->andThrow(new \GuzzleHttp\Exception\BadResponseException('e', Mockery::mock(\Psr\Http\Message\RequestInterface::class)));
         $shortener->expand('http://google.com');
     }
 

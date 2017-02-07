@@ -2,7 +2,7 @@
 
 namespace Waavi\UrlShortener;
 
-use Guzzle\Http\Exception\BadResponseException;
+use GuzzleHttp\Exception\BadResponseException;
 use Mremi\UrlShortener\Exception\InvalidApiResponseException;
 
 class UrlShortener
