@@ -50,4 +50,36 @@ class UrlShortenerTest extends TestCase
     {
         $this->assertInstanceOf(UrlShortener::class, \UrlShortener::driver('google'));
     }
+
+    /**
+     *  @test
+     *  @expectedException \Waavi\UrlShortener\Exceptions\InvalidResponseException
+     */
+    public function it_throws_invalid_response_exception_on_bad_response()
+    {
+        $factory   = Mockery::mock(Factory::class);
+        $driver    = Mockery::mock(BaseDriver::class);
+        $shortener = new UrlShortener($factory);
+
+        $factory->shouldReceive('make')->with('driverName')->andReturn($driver);
+        $shortener->setDriver('driverName');
+        $driver->shouldReceive('expand')->with('http://google.com')->andThrow(new \GuzzleHttp\Exception\BadResponseException('e', Mockery::mock(\Psr\Http\Message\RequestInterface::class)));
+        $shortener->expand('http://google.com');
+    }
+
+    /**
+     *  @test
+     *  @expectedException \Waavi\UrlShortener\Exceptions\InvalidResponseException
+     */
+    public function it_throws_invalid_response_exception_on_invalid_api_response()
+    {
+        $factory   = Mockery::mock(Factory::class);
+        $driver    = Mockery::mock(BaseDriver::class);
+        $shortener = new UrlShortener($factory);
+
+        $factory->shouldReceive('make')->with('driverName')->andReturn($driver);
+        $shortener->setDriver('driverName');
+        $driver->shouldReceive('expand')->with('http://google.com')->andThrow(new \Mremi\UrlShortener\Exception\InvalidApiResponseException);
+        $shortener->expand('http://google.com');
+    }
 }

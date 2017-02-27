@@ -1,6 +1,6 @@
 {
     "name": "waavi/url-shortener",
-    "description": "Google Recaptcha for Laravel 5",
+    "description": "Url Shortener for Laravel 5 with support for Google and Bitly drivers.",
     "keywords": [
         "waavi",
         "laravel",
@@ -23,8 +23,8 @@
         "mremi/url-shortener": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit" : "^4",
-        "orchestra/testbench": "3.1.x|3.2.x",
+        "phpunit/phpunit" : "^5",
+        "orchestra/testbench": "3.1.x|3.2.x|3.3.x",
         "mockery/mockery": "^0.9.4"
     },
     "autoload": {

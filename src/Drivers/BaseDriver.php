@@ -2,8 +2,6 @@
 
 namespace Waavi\UrlShortener\Drivers;
 
-use Guzzle\Http\Exception\BadResponseException;
-use Mremi\UrlShortener\Exception\InvalidApiResponseException;
 use Mremi\UrlShortener\Model\Link;
 
 abstract class BaseDriver
@@ -19,39 +17,31 @@ abstract class BaseDriver
      *  Shorten the given url
      *
      *  @param  string $url
+     *  @throws \Guzzle\Http\Exception\BadResponseException
+     *  @throws \Mremi\UrlShortener\Exception\InvalidApiResponseException
      *  @return string
      */
     public function shorten($url)
     {
-        try {
-            $link = new Link;
-            $link->setLongUrl($url);
-            $this->provider->shorten($link);
-            return $link->getShortUrl();
-        } catch (BadResponseException $e) {
-            return $url;
-        } catch (InvalidApiResponseException $e) {
-            return $url;
-        }
+        $link = new Link;
+        $link->setLongUrl($url);
+        $this->provider->shorten($link);
+        return $link->getShortUrl();
     }
 
     /**
      *  Expand the given url
      *
      *  @param  string $url
+     *  @throws \Guzzle\Http\Exception\BadResponseException
+     *  @throws \Mremi\UrlShortener\Exception\InvalidApiResponseException
      *  @return string
      */
     public function expand($url)
     {
-        try {
-            $link = new Link;
-            $link->setShortUrl($url);
-            $this->provider->expand($link);
-            return $link->getLongUrl();
-        } catch (BadResponseException $e) {
-            return $url;
-        } catch (InvalidApiResponseException $e) {
-            return $url;
-        }
+        $link = new Link;
+        $link->setShortUrl($url);
+        $this->provider->expand($link);
+        return $link->getLongUrl();
     }
 }

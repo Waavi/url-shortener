@@ -2,6 +2,9 @@
 
 namespace Waavi\UrlShortener;
 
+use GuzzleHttp\Exception\BadResponseException;
+use Mremi\UrlShortener\Exception\InvalidApiResponseException;
+
 class UrlShortener
 {
     /**
@@ -45,21 +48,35 @@ class UrlShortener
      *  Shorten the given url
      *
      *  @param  string  $url
+     *  @throws InvalidResponseException
      *  @return string
      */
     public function shorten($url)
     {
-        return $this->driver->shorten($url);
+        try {
+            return $this->driver->shorten($url);
+        } catch (BadResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        } catch (InvalidApiResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        }
     }
 
     /**
      *  Expand the given url
      *
      *  @param  string  $url
+     *  @throws InvalidResponseException
      *  @return string
      */
     public function expand($url)
     {
-        return $this->driver->expand($url);
+        try {
+            return $this->driver->expand($url);
+        } catch (BadResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        } catch (InvalidApiResponseException $e) {
+            throw new Exceptions\InvalidResponseException($e->getMessage());
+        }
     }
 }
