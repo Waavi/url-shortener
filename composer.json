@@ -1,7 +1,8 @@
 {
-    "name": "waavi/url-shortener",
+    "name": "nohumans/url-shortener",
     "description": "Url Shortener for Laravel 5 with support for Google and Bitly drivers.",
     "keywords": [
+	"nohumans",
         "waavi",
         "laravel",
         "url",
@@ -12,14 +13,14 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Waavi",
+            "name": "nohumans",
             "email": "info@waavi.com",
             "homepage": "http://waavi.com"
         }
     ],
     "require": {
-        "illuminate/support": "5.1.x|5.2.x|5.3.*",
-        "illuminate/config": "5.1.x|5.2.x|5.3.*",
+        "illuminate/support": "5.1.x|5.2.x|5.3.*|5.4.*",
+        "illuminate/config": "5.1.x|5.2.x|5.3.*|5.4.*",
         "mremi/url-shortener": "^2.0"
     },
     "require-dev": {
@@ -29,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Waavi\\UrlShortener\\": "src/"
+            "nohumans\\UrlShortener\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Waavi\\UrlShortener\\Test\\": "tests"
+            "nohumans\\UrlShortener\\Test\\": "tests"
         }
     },
     "minimum-stability": "dev",
