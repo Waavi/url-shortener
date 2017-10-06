@@ -29,7 +29,7 @@ class FactoryTest extends TestCase
      */
     public function it_throws_exception_on_invalid_name()
     {
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $factory = $this->app['urlshortener.factory'];
         $driver  = $factory->make('random');
     }
