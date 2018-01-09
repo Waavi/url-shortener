@@ -39,7 +39,7 @@ class Factory
         $googleApiKey   = $config->get('urlshortener.google.apikey');
         $bitlyUsername  = $config->get('urlshortener.bitly.username');
         $bitlyPassword  = $config->get('urlshortener.bitly.password');
-        $bitlyGenericAccessToken  = $config->get('urlshortener.bitly.bitly-gat');
+        $bitlyGenericAccessToken  = $config->get('urlshortener.bitly-gat.genericAccessToken');
         $connectTimeout = $config->get('urlshortener.connect_timeout');
         $timeout        = $config->get('urlshortener.timeout');
 
