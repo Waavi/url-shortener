@@ -49,14 +49,14 @@ Check the config files for the environment variables you need to set for the sel
 
 ### Shorten a url
 
-    ```php
-    \UrlShortener::shorten('http://google.com'); // Uses default driver as per config settings
-    \UrlShortener::driver('bitly')->shorten('http://google.com');
-    ```
+```php
+\UrlShortener::shorten('http://google.com'); // Uses default driver as per config settings
+\UrlShortener::driver('bitly')->shorten('http://google.com');
+```
 
 ### Expand a url
 
-    ```php
-    \UrlShortener::expand('http://google.com'); // Uses default driver as per config settings
-    \UrlShortener::driver('bitly')->expand('http://google.com');
-    ```
+```php    
+\UrlShortener::expand('http://google.com'); // Uses default driver as per config settings
+\UrlShortener::driver('bitly')->expand('http://google.com');
+```
