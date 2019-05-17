@@ -22,6 +22,13 @@ class Factory
     protected $bitly;
 
     /**
+     * Bitly Generic Access Token Driver
+     *
+     * @var BitlyGenericAccessToken
+     */
+    protected $bitlyGAT;
+
+    /**
      *  Create a new Factory instance
      *
      *  @param  Config $config
@@ -32,11 +39,13 @@ class Factory
         $googleApiKey   = $config->get('urlshortener.google.apikey');
         $bitlyUsername  = $config->get('urlshortener.bitly.username');
         $bitlyPassword  = $config->get('urlshortener.bitly.password');
+        $bitlyGenericAccessToken  = $config->get('urlshortener.bitly-gat.genericAccessToken');
         $connectTimeout = $config->get('urlshortener.connect_timeout');
         $timeout        = $config->get('urlshortener.timeout');
 
         $this->google = new Google($googleApiKey, $connectTimeout, $timeout);
         $this->bitly  = new Bitly($bitlyUsername, $bitlyPassword, $connectTimeout, $timeout);
+        $this->bitlyGAT  = new BitlyGenericAccessToken($bitlyGenericAccessToken, $connectTimeout, $timeout);
     }
 
     /**
@@ -54,6 +63,8 @@ class Factory
                 return $this->google;
             case 'bitly':
                 return $this->bitly;
+            case 'bitly-gat':
+                return $this->bitlyGAT;
             default:
                 throw new InvalidArgumentException('Invalid URL Shortener driver name');
         }
