@@ -33,11 +33,15 @@ Or manually edit your composer.json file:
 
 In config/app.php, add the following entry to the end of the providers array:
 
-    Waavi\UrlShortener\UrlShortenerServiceProvider::class,
+```php
+Waavi\UrlShortener\UrlShortenerServiceProvider::class,
+```
 
 And the following alias:
 
-    'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
+```php
+'UrlShortener' => Waavi\UrlShortener\Facades\UrlShortener::class,
+```
 
 Publish the configuration file, the form view and the language entries:
 
@@ -49,14 +53,14 @@ Check the config files for the environment variables you need to set for the sel
 
 ### Shorten a url
 
-    ```php
-    \UrlShortener::shorten('http://google.com'); // Uses default driver as per config settings
-    \UrlShortener::driver('bitly')->shorten('http://google.com');
-    ```
+```php
+\UrlShortener::shorten('http://google.com'); // Uses default driver as per config settings
+\UrlShortener::driver('bitly')->shorten('http://google.com');
+```
 
 ### Expand a url
 
-    ```php
-    \UrlShortener::expand('http://google.com'); // Uses default driver as per config settings
-    \UrlShortener::driver('bitly')->expand('http://google.com');
-    ```
+```php
+\UrlShortener::expand('http://google.com'); // Uses default driver as per config settings
+\UrlShortener::driver('bitly')->expand('http://google.com');
+```
