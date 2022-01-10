@@ -15,9 +15,15 @@
         "email": "info@waavi.com",
         "homepage": "http://waavi.com"
     }],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Waavi/url-shortener"
+        }
+    ],
     "require": {
-        "illuminate/support": "5.1.x|5.2.x|5.3.*|5.4.*|5.5.*",
-        "illuminate/config": "5.1.x|5.2.x|5.3.*|5.4.*|5.5.*",
+        "illuminate/support": "5.1.x|5.2.x|5.3.*|5.4.*|5.5.*|7.0.0",
+        "illuminate/config": "5.1.x|5.2.x|5.3.*|5.4.*|5.5.*|7.0.0",
         "mremi/url-shortener": "^2.0"
     },
     "require-dev": {
@@ -38,5 +44,10 @@
     "minimum-stability": "dev",
     "scripts": {
         "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
     }
 }
